@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10111d">
+  <title>Your Daily Dose of Motivation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: "DM Sans", sans-serif;
+      background: #10111d;
+      color: #f7f4ed;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      --muted: #a7a5b5;
+      --gold: #f5cd79;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 50% 37%, rgba(119, 87, 181, .2), transparent 38rem),
+        radial-gradient(ellipse at 90% 85%, rgba(211, 157, 83, .09), transparent 30rem),
+        #10111d;
+    }
+
+    body::before {
+      position: fixed;
+      z-index: 0;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,.28) .7px, transparent .7px);
+      background-size: 34px 34px;
+      content: "";
+      opacity: .14;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+
+    main {
+      position: relative;
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px 36px;
+      isolation: isolate;
+    }
+
+    .topline {
+      position: absolute;
+      top: 30px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #d3cfdf;
+      font-size: .73rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .sparkle { color: var(--gold); font-size: 1rem; }
+
+    .thought {
+      position: absolute;
+      width: min(230px, 23vw);
+      color: #c9c4d2;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(.9rem, 1.4vw, 1.12rem);
+      font-style: italic;
+      line-height: 1.55;
+      opacity: .66;
+    }
+
+    .thought span {
+      display: block;
+      margin-top: 9px;
+      color: #8e899d;
+      font-family: "DM Sans", sans-serif;
+      font-size: .68rem;
+      font-style: normal;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .thought-one { top: 22%; left: 8%; transform: rotate(-5deg); }
+    .thought-two { top: 25%; right: 7%; transform: rotate(4deg); }
+    .thought-three { bottom: 20%; left: 12%; transform: rotate(3deg); }
+    .thought-four { right: 9%; bottom: 18%; transform: rotate(-4deg); }
+
+    .hero {
+      width: min(100%, 720px);
+      padding: 60px 32px 54px;
+      text-align: center;
+      animation: arrive .8s cubic-bezier(.2,.8,.2,1) both;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: var(--gold);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before, .eyebrow::after {
+      width: 23px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+      opacity: .65;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(3rem, 8vw, 6.4rem);
+      font-weight: 700;
+      letter-spacing: -.055em;
+      line-height: .99;
+    }
+
+    h1 em {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .intro {
+      margin: 23px auto 30px;
+      color: var(--muted);
+      font-size: clamp(.96rem, 2vw, 1.08rem);
+      line-height: 1.7;
+    }
+
+    .motivation-button {
+      position: relative;
+      display: inline-flex;
+      min-height: 58px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 27px;
+      border: 1px solid rgba(255,255,255,.58);
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ffe09b, #eab75e);
+      box-shadow: 0 8px 34px rgba(238, 185, 95, .2), inset 0 1px rgba(255,255,255,.7);
+      color: #282031;
+      cursor: pointer;
+      font: 700 1rem "DM Sans", sans-serif;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .motivation-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 13px 42px rgba(238, 185, 95, .3), inset 0 1px rgba(255,255,255,.7);
+    }
+
+    .motivation-button:active { transform: translateY(0); }
+    .motivation-button:focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
+    .button-icon { font-size: 1.15rem; }
+
+    .response {
+      min-height: 28px;
+      margin: 19px 0 0;
+      color: #d7c6f6;
+      font-size: .92rem;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: opacity .25s ease, transform .25s ease;
+    }
+
+    .response.visible { opacity: 1; transform: translateY(0); }
+
+    .fine-print {
+      position: absolute;
+      bottom: 28px;
+      color: #777487;
+      font-size: .72rem;
+      letter-spacing: .04em;
+      text-align: center;
+    }
+
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 700px) {
+      main { min-height: 100svh; padding: 78px 18px 70px; }
+      .hero { padding: 35px 8px; }
+      .thought { width: 43%; font-size: .83rem; opacity: .42; }
+      .thought-one { top: 13%; left: 6%; }
+      .thought-two { top: 18%; right: 4%; }
+      .thought-three { bottom: 13%; left: 6%; }
+      .thought-four { right: 4%; bottom: 10%; }
+      .fine-print { bottom: 16px; max-width: 90%; }
+    }
+
+    @media (max-width: 420px) {
+      .thought { font-size: .74rem; }
+      .thought-one { top: 12%; }
+      .thought-two { top: 17%; }
+      .thought-three { bottom: 11%; }
+      .thought-four { bottom: 8%; }
+      .motivation-button { min-height: 54px; padding: 0 21px; font-size: .94rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topline"><span class="sparkle" aria-hidden="true">✦</span> The Institute of Extremely Serious Motivation</div>
+
+    <p class="thought thought-one">“You are capable of amazing things. Probably.”<span>— A very confident website</span></p>
+    <p class="thought thought-two">“Dream big. Nap strategically.”<span>— Ancient wisdom</span></p>
+    <p class="thought thought-three">“The only bad workout is the one you skip.”<span>— Someone in gym clothes</span></p>
+    <p class="thought thought-four">“Believe in yourself. We clicked the button, didn't we?”<span>— Your future self</span></p>
+
+    <section class="hero" aria-labelledby="headline">
+      <div class="eyebrow">Your breakthrough starts now</div>
+      <h1 id="headline">Today is your<br><em>day.</em></h1>
+      <p class="intro">One click stands between you and becoming<br>the unstoppable legend you were born to be.</p>
+      <button class="motivation-button" id="motivation-button" type="button">
+        <span class="button-icon" aria-hidden="true">✧</span>
+        Click here for motivation
+        <span class="button-icon" aria-hidden="true">✧</span>
+      </button>
+      <p class="response" id="response" role="status" aria-live="polite"></p>
+    </section>
+
+    <div class="fine-print">No goals were achieved in the making of this inspirational experience.</div>
+  </main>
+
+  <script>
+    const button = document.querySelector("#motivation-button");
+    const response = document.querySelector("#response");
+    const motivationSong = new Audio("sound.mp3");
+    const messages = [
+      "Incredible. You clicked a button. The universe is basically yours now.",
+      "That was your sign. Go do the thing. Or click again. Your journey.",
+      "Motivation unlocked! Side effects may include opening another tab.",
+      "You have the power! Mostly the power to click, but still."
+    ];
+    let lastMessage = -1;
+
+    button.addEventListener("click", () => {
+      let nextMessage = Math.floor(Math.random() * messages.length);
+      if (messages.length > 1 && nextMessage === lastMessage) {
+        nextMessage = (nextMessage + 1) % messages.length;
+      }
+      lastMessage = nextMessage;
+      response.textContent = messages[nextMessage];
+      response.classList.add("visible");
+
+      motivationSong.currentTime = 0;
+      motivationSong.play();
+    });
+  </script>
+</body>
+</html>
